@@ -13,21 +13,21 @@ public class JavaObjectIO {
 		
 		File f = new File("d://workspace//eclipse//JavaDemo//var//Person.obj");
 		try {
-			oos = new ObjectOutputStream(new FileOutputStream(f));
+			oos = new ObjectOutputStream(new FileOutputStream(f)); // prepare to write into a file
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		oos.writeObject(p);
+		oos.writeObject(p); // save an object
 		oos.close();
 				
-		ois = new ObjectInputStream(new FileInputStream(f));
+		ois = new ObjectInputStream(new FileInputStream(f)); // prepare to read from a file
 		try {
-			o = ois.readObject();
+			o = ois.readObject(); // read an object
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}
 		ois.close();
-		if(o instanceof Person){
+		if(o instanceof Person){ // verify the object is belong to class Person
 			Person newPerson = (Person) o;
 			System.out.println(newPerson.getName());
 			System.out.println(newPerson.getAge());
