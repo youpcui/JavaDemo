@@ -27,13 +27,13 @@ public class JavaRandomAccessFileIO {
 
 		raf1.close() ;
 
-		@SuppressWarnings("resource")
 		RandomAccessFile raf2 = new RandomAccessFile("f:\\mldn.txt","r") ;
 		// 读取第二个人的数据
 		raf2.skipBytes(12) ;
 		byte b[] = new byte[8] ;
 		raf2.read(b) ;
 		int age2 = raf2.readInt() ;
+		raf2.close();
 		System.out.println(new String(b)+" --> "+age2) ;
 
 	}

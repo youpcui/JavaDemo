@@ -42,6 +42,11 @@ class Receiver implements Runnable{
 		}
 		b = out.toByteArray();
 		try {
+			out.close();
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
+		try {
 			saveData(b); // save file
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
@@ -53,7 +58,6 @@ class Receiver implements Runnable{
 	
 	private void saveData(byte[] b) throws FileNotFoundException, IOException{
 		File f = new File("D://workspace//eclipse//JavaDemo//var//obj//received.obj");
-		@SuppressWarnings("resource")
 		FileOutputStream fo = new FileOutputStream(f);
 		if(f.exists()){
 			f.delete();
@@ -61,6 +65,7 @@ class Receiver implements Runnable{
 			f.createNewFile();		
 		}
 		fo.write(b);
+		fo.close();
 	}
 
 }
