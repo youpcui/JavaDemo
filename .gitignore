@@ -27,3 +27,5 @@ Desktop.ini
 #dev
 var/
 var/*
+bin/
+bin*
