@@ -2,14 +2,14 @@ package com.ycui.demo.javademo.io;
 
 import java.io.*;
 
-class Sender implements Runnable{
+class JavaPipedIOSender implements Runnable{
 	private PipedOutputStream out;
 
 	private File file;
 	private String name;
 
 	
-	public Sender (String name, File file){
+	public JavaPipedIOSender (String name, File file){
 		this.name = name;
 		this.file = file;
 		this.out = new PipedOutputStream();

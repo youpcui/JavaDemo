@@ -2,11 +2,11 @@ package com.ycui.demo.javademo.io;
 
 import java.io.*;
 
-class Receiver implements Runnable{
+class JavaPipedIOReceiver implements Runnable{
 	private PipedInputStream in;
 	private String name;
 	
-	public Receiver(String name){
+	public JavaPipedIOReceiver(String name){
 		this.name = name;
 		this.in = new PipedInputStream();
 	} 
