@@ -1,4 +1,4 @@
-package com.ycui.demo.javademo.io;
+package ycui.demo.javademo.io;
 import java.io.*;
 import java.util.Date;
 

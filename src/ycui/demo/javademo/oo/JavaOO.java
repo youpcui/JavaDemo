@@ -1,4 +1,4 @@
-package com.ycui.demo.javademo.oo;
+package ycui.demo.javademo.oo;
 
 interface A{
 	public static final String  AA = "AA";

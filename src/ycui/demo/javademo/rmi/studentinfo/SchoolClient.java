@@ -1,4 +1,4 @@
-package com.ycui.demo.javademo.rmi.studentinfo;
+package ycui.demo.javademo.rmi.studentinfo;
 
 import java.net.MalformedURLException;
 import java.rmi.Naming;

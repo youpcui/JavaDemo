@@ -1,4 +1,4 @@
-package com.ycui.demo.javademo.rmi.fileinfo;
+package ycui.demo.javademo.rmi.fileinfo;
 
 import java.io.Serializable;
 import java.rmi.Remote;

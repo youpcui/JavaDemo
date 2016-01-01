@@ -1,4 +1,4 @@
-package com.ycui.demo.javademo.rmi.studentinfo;
+package ycui.demo.javademo.rmi.studentinfo;
 
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;

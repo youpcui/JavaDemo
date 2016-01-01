@@ -1,4 +1,4 @@
-package com.ycui.demo.javademo.rmi;
+package ycui.demo.javademo.rmi;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;

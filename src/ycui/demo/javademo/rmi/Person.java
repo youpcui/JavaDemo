@@ -1,4 +1,4 @@
-package com.ycui.demo.javademo.rmi;
+package ycui.demo.javademo.rmi;
 import java.io.Serializable;
 
 class Person implements Serializable{
