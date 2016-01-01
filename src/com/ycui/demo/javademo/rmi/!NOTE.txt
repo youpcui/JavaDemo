@@ -1,0 +1,62 @@
+使用RMI技术共有6个步骤要走: 
+
+(1)定义和实现远端接口中的参数：
+每一个远端接口中的参数都必须是可序列化的。远端接口必须从java.rmi.Remote继承；远端接口中的方法如果要throw异常，这个异常必须是java.rmi.RemoteException（或java.rmi.RemoteException的子类），否则，这个异常就不能被返回到客户端。
+
+
+interface RmiService extends Remote{
+	public void method(args) throws RemoteException;
+}
+
+interface IAccess extends serializable{
+	public void method(args) throws RemoteException;
+}
+
+class Access implements IAccess{
+	@override
+	public void method(args) throws RemoteException{
+		//return;
+	}
+}
+
+(2)定义和实现远端接口：
+实现远端接口中的参数的接口。如果继承UnicastRemoteObject类，需在构造方法中构造父类对象。
+
+
+public class RmiServiceImpl extends UnicastRemoteObject implements RmiService {
+	protected RmiServiceImpl () throws RemoteException {
+		super();
+	}
+	public Object method(args) throws RemoteException(){
+		return (Object)obj;
+	}
+}
+
+
+(3)编写服务端代码：
+服务端代码主要有3个步骤：
+　　（1）加载安全管理器
+　　（2）创建一个服务对象
+　　（3）将这个服务对象注册到命名服务上
+
+public static void main(){
+	RmiService rs = new RmiServiceImpl(); //声明服务器接口，子类实例化
+	LocateRegistry.createRegistry(6789);//注册端口
+	Naming.rebind("rmi://localhost:6789/RmiService ", rs);//传入注册地址和对象
+}
+
+
+(4)编写客户端代码：
+　　（1）根据服务的名称，查找服务对象 
+　　（2）调用服务服务对象对应的方法完成工作
+
+public static void main(){
+	RmiService rs = (RmiService) Naming.lookup("rmi://localhost:6789/RmiService");/*声明服务器接口，查找注册地址*/
+
+}
+
+
+(5)生成stub和skeltion ,并将stub打包到客户端jar中，将skeltion打包到服务端jar中：
+
+
+(6)启动rmiregistry,并将服务注册到rmiregistry中，然后运行代码。
