@@ -11,22 +11,20 @@ public class TCPServer {
 		PrintWriter out = null;
 		
 		try {
-			server = new ServerSocket(8888);
+			server = new ServerSocket(8888); // create port
 			System.out.println("server is ready");
-			client = server.accept();
+			client = server.accept(); // accept client
 		} catch (IOException e) {
 			System.err.println("Server is not etablished: "+e.getMessage());
 		}
-		
 		try {
 			out = new PrintWriter(client.getOutputStream());
-			out.print("Hello");
-			out.close();
+			out.print("Hello"); 
 		} catch (IOException e) {
-			System.err.println("Massege can not output"+e.getMessage());
+			System.err.println("Massege can not be sent"+e.getMessage());
 		}
-
 		try {
+			out.close();
 			client.close();
 			server.close();
 		} catch (IOException e) {

@@ -1,24 +1,41 @@
 package ycui.demo.javademo.net;
 
+import java.io.IOException;
 import java.net.*;
 
 public class UDPServer {
 
-	public static void main(String[] args) throws Exception {
+	public static void main(String[] args){
 		DatagramSocket ds = null;
 		DatagramPacket dp = null;
 		byte[] b =new byte[1024];
 		int len = 0;
 		while (true) {
-			ds = new DatagramSocket(5000);
+			try {
+				ds = new DatagramSocket(5000);
+			} catch (SocketException e) {
+				System.err.println("UDP服务器发送端口创建异常");
+				e.printStackTrace();
+			}
 			System.out.println("请输入信息： ");
-//			String str = "";
-//			BufferedReader buf = new BufferedReader(new InputStreamReader(System.in));
-//			str = buf.readLine();
-//			dp = new DatagramPacket(str.getBytes(), 0, str.length(),InetAddress.getByName("localhost"), 8888);
-			len = System.in.read(b);
-			dp = new DatagramPacket(b, 0, len,InetAddress.getByName("localhost"), 8888);
-			ds.send(dp);
+			try {
+				len = System.in.read(b);
+			} catch (IOException e) {
+				System.err.println("读取数据异常");
+				e.printStackTrace();
+			}
+			try {
+				dp = new DatagramPacket(b, 0, len,InetAddress.getByName("localhost"), 8888);
+			} catch (UnknownHostException e) {
+				System.err.println("UDP服务器未知数据发送地址或端口");
+				e.printStackTrace();
+			}
+			try {
+				ds.send(dp);
+			} catch (IOException e) {
+				System.err.println("数据发送异常");
+				e.printStackTrace();
+			}
 			ds.close();
 		}
 	}
