@@ -5,11 +5,12 @@ public class FruitFactory {
 		Fruit f = null;
 		
 		try {
-			f = (Fruit) Class.forName("ycui.demo.javademo.factory." + type).newInstance();
+			f = (Fruit) Class.forName(type).newInstance();
 		} catch (Exception e){
 			e.printStackTrace();
 		}
-	
 		return f;
+	
+		
 	}
 }
