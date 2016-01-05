@@ -9,12 +9,12 @@ public interface Fruit {
 }
 
 abstract class InFarm implements Fruit {
-	protected String fruitName = "Fruit";
-
-	public InFarm(String fruitName) {
-		this.fruitName = fruitName;
+	private String fruitName;
+	
+	protected InFarm(String name){
+		this.fruitName = name;
 	}
-
+	
 	@Override
 	public void grow() {
 		System.out.println(this.fruitName + " is growing...");
@@ -28,35 +28,27 @@ abstract class InFarm implements Fruit {
 }
 
 class Apple extends InFarm {
+	private static final String NAME = "Apple";
 
-	public Apple() {
-		super("Apple");
-	}
-
-	@Override
-	public void grow() {
-		super.grow();
-	}
-
-	@Override
-	public void pick() {
-		super.pick();
+	public Apple(){
+		super(NAME);
 	}
 }
 
 class Orange extends InFarm {
 
-	public Orange() {
-		super("Orange");
-	}
+	private static final String NAME = "Orange";
 
-	@Override
-	public void grow() {
-		super.grow();
+	public Orange(){
+		super(NAME);
 	}
+}
 
-	@Override
-	public void pick() {
-		super.pick();
+class Banana extends InFarm {
+
+	private static final String NAME = "Banana";
+	
+	public Banana() {
+		super(NAME);
 	}
 }
