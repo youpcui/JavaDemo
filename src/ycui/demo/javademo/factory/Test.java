@@ -8,10 +8,11 @@ public class Test{
 	public static void main(String[] args) {
 		Fruit f = null;
 		Properties p = new Properties();
-		p.setProperty("a","ycui.demo.javademo.factory.Apple") ;
+/*		p.setProperty("a","ycui.demo.javademo.factory.Apple") ;
 		p.setProperty("o","ycui.demo.javademo.factory.Orange") ;
 		p.setProperty("b","ycui.demo.javademo.factory.Banana") ;
-		
+*/
+		p = InitProperties.getProperties() ;
 		System.out.println("Select a code :");
 		System.out.println("a --> Apple | b --> Banana | o --> Orange");
 		String code = new InputData().getString();

@@ -8,7 +8,12 @@ public class FruitFactory {
 			f = (Fruit) Class.forName(type).newInstance();
 		} catch (Exception e){
 			e.printStackTrace();
+		}finally{
+			if(f==null){
+				f = new DefaultFruit();
+			}
 		}
+		
 		return f;
 	
 		

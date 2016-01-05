@@ -53,4 +53,13 @@ class Banana extends InFarm {
 	}
 }
 
+class DefaultFruit extends InFarm {
+
+	private static final String NAME = "(Default)Fruit";
+	
+	public DefaultFruit() {
+		super(NAME);
+	}
+}
+
 
