@@ -30,3 +30,8 @@ var/*
 bin/
 bin*
 src/Test.java
+
+#JRat
+jrat.xml
+jrat.output
+jrat.output/*
