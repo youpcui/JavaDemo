@@ -10,7 +10,7 @@ public class InitProperties {
 	public static Properties getProperties(){
 		Properties p = new Properties();
 		try {
-			p.loadFromXML(new FileInputStream("d://workspace//eclipse//JavaDemo//var//factory//fruit.properties"));
+			p.loadFromXML(new FileInputStream("//var//factory//fruit.properties"));
 		} catch (InvalidPropertiesFormatException e) {
 			e.printStackTrace();
 		} catch (FileNotFoundException e) {
